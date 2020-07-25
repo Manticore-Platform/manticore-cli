@@ -1,5 +1,12 @@
 package main
 
+import (
+	"manticore-cli/classes"
+	"manticore-cli/config"
+	"manticore-cli/functions"
+	"manticore-cli/log"
+)
+
 func main() {
 	asciiArt :=
 		`
@@ -12,13 +19,12 @@ func main() {
 Written By @ggsec_
 =============================================================================
 `
-	printDescription(asciiArt)
+	log.PrintDescription(asciiArt)
 
-	scenariosOutput := []ScenarioOutput{}
+	scenariosOutput := []classes.ScenarioOutput{}
 
-	threatGroupUrl,threatGroupScenariosUrl,payloadDirectoryUrl,currentDirectory := configParser("config.ini")
+	threatGroupUrl, threatGroupScenariosUrl, payloadDirectoryUrl, currentDirectory := config.ConfigParser("config.ini")
 
-	publicThreatGroupParser(threatGroupUrl,payloadDirectoryUrl,currentDirectory,threatGroupScenariosUrl,scenariosOutput)
-
+	functions.PublicThreatGroupParser(threatGroupUrl, payloadDirectoryUrl, currentDirectory, threatGroupScenariosUrl, scenariosOutput)
 
 }

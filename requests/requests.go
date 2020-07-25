@@ -1,22 +1,24 @@
-package main
+package requests
 
 import (
 	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
+	"manticore-cli/classes"
+	"manticore-cli/log"
 	"net/http"
 	"os"
 )
 
-func readPublicThreatJsonFromUrl(url string) (Threat, error){
+func ReadPublicThreatJsonFromUrl(url string) (classes.Threat, error) {
 	resp, err := http.Get(url)
 	if err != nil {
 		fmt.Println("Error")
 	}
 
 	defer resp.Body.Close()
-	var threatStructure Threat
+	var threatStructure classes.Threat
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(resp.Body)
 	respByte := buf.Bytes()
@@ -27,14 +29,14 @@ func readPublicThreatJsonFromUrl(url string) (Threat, error){
 	return threatStructure, nil
 }
 
-func readThreatScenarioJsonFromUrl(url string) ([]Scenario, error){
+func ReadThreatScenarioJsonFromUrl(url string) ([]classes.Scenario, error) {
 	resp, err := http.Get(url)
 	if err != nil {
 		fmt.Println("Error")
 	}
 
 	defer resp.Body.Close()
-	var scenarioList []Scenario
+	var scenarioList []classes.Scenario
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(resp.Body)
 	respByte := buf.Bytes()
@@ -45,14 +47,12 @@ func readThreatScenarioJsonFromUrl(url string) ([]Scenario, error){
 	return scenarioList, nil
 }
 
-
-
-
 func DownloadFile(filepath string, url string) error {
 
 	// Get the data
 	resp, err := http.Get(url)
 	if err != nil {
+		log.PrintStdErr("Can not reach threat repository.")
 		return err
 	}
 	defer resp.Body.Close()
@@ -68,4 +68,3 @@ func DownloadFile(filepath string, url string) error {
 	_, err = io.Copy(out, resp.Body)
 	return err
 }
-
