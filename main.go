@@ -25,6 +25,8 @@ Written By @ggsec_
 
 	threatGroupUrl, threatGroupScenariosUrl, payloadDirectoryUrl, currentDirectory := config.ConfigParser("config.ini")
 
-	functions.PublicThreatGroupParser(threatGroupUrl, payloadDirectoryUrl, currentDirectory, threatGroupScenariosUrl, scenariosOutput)
+	for _, row := range threatGroupUrl {
+		functions.PublicThreatGroupParser(row, payloadDirectoryUrl, currentDirectory, threatGroupScenariosUrl, scenariosOutput)
+	}
 
 }

@@ -1,9 +1,8 @@
 package execution
 
 import (
+	"bytes"
 	"fmt"
-	ps "github.com/bhendo/go-powershell"
-	"github.com/bhendo/go-powershell/backend"
 	"manticore-cli/classes"
 	"manticore-cli/log"
 	"manticore-cli/requests"
@@ -11,23 +10,39 @@ import (
 	"strings"
 )
 
+type PowerShell struct {
+	powerShell string
+}
+
+func New() *PowerShell {
+	ps, _ := exec.LookPath("powershell.exe")
+	return &PowerShell{
+		powerShell: ps,
+	}
+}
+
+func (p *PowerShell) Execute(args ...string) (stdOut string, stdErr string, err error) {
+	args = append([]string{"-NoProfile", "-NonInteractive"}, args...)
+	cmd := exec.Command(p.powerShell, args...)
+
+	var stdout bytes.Buffer
+	var stderr bytes.Buffer
+	cmd.Stdout = &stdout
+	cmd.Stderr = &stderr
+
+	err = cmd.Run()
+	stdOut, stdErr = stdout.String(), stderr.String()
+	return
+}
+
 func psh_execute(command string) (string, string) {
+	posh := New()
+	stdout, stderr, err := posh.Execute(command)
 
-	back := &backend.Local{}
-
-	// start a local powershell process
-	shell, err := ps.New(back)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+		return stdout, "Command is unsuccesful"
 	}
-	defer shell.Exit()
-
-	// ... and interact with it
-	stdout, stderr, err := shell.Execute(command)
-	if err != nil {
-		panic(err)
-	}
-
 	return stdout, stderr
 }
 

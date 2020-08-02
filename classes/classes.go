@@ -8,9 +8,9 @@ type Threat struct {
 }
 
 type ThreatConfig struct {
-	ThreatGroupUrl         string `json:"public-threat-group-url"`
-	ThreatGroupScenarioUrl string `json:"public-threat-scenarios-url"`
-	PayloadDirectory       string `json:"payload-directory"`
+	ThreatGroupUrl         []string `json:"public-threat-group-url"`
+	ThreatGroupScenarioUrl string   `json:"public-threat-scenarios-url"`
+	PayloadDirectory       string   `json:"payload-directory"`
 }
 
 type Scenario struct {

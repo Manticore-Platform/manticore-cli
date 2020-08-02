@@ -19,7 +19,7 @@ func PrintStdErr(err string) {
 	color.Red("%s", err)
 }
 
-func printFunc(err string) {
+func PrintFunc(err string) {
 	color.White("%s", err)
 }
 
@@ -32,9 +32,9 @@ func PrintScenariosOutput(scenariosOutput []classes.ScenarioOutput) {
 
 	for _, row := range scenariosOutput {
 		printInfo("=============================================================================\n")
-		printFunc("ID :" + row.Id)
-		printFunc("Name : " + row.Name)
-		printFunc("Description : " + row.Description)
+		PrintFunc("ID :" + row.Id)
+		PrintFunc("Name : " + row.Name)
+		PrintFunc("Description : " + row.Description)
 		printInfo("=============================================================================\n")
 		printInfo("Scenario Command : " + row.ScenarioCommand)
 		printStdOut("Scenario Output : " + row.ScenarioOutput)

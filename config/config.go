@@ -9,8 +9,9 @@ import (
 	"os"
 )
 
-func ConfigParser(config string) (string, string, string, string) {
+func ConfigParser(config string) ([]string, string, string, string) {
 	var threatConfig classes.ThreatConfig
+	var myError []string
 	currentDirectory, err := os.Getwd()
 
 	if _, err := os.Stat(currentDirectory + "/" + config); err == nil {
@@ -28,5 +29,5 @@ func ConfigParser(config string) (string, string, string, string) {
 		os.Exit(3)
 	}
 	log.PrintStdErr(err.Error())
-	return "", "", "", ""
+	return myError, "", "", ""
 }
