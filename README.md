@@ -48,4 +48,4 @@ payload-directory : Parses Payload used by Manticore Threat Scenario Repository 
 
 ## Disclaimer
 
-We are not responsible for any damage you might cause with this go tool. Use at own risk and for testing and learning only. Demo purposes only! Use this to avoid ransomware and make better tools against it.
+We are not responsible for any damage you might cause with this go tool. Use at own risk and for testing and learning only. Demo purposes only! Use this to avoid threats and make better tools against them.
