@@ -1,5 +1,16 @@
 # Manticore Adversary Emulation Client Tool
 
+## Pre-Release 
+
+Manticore-Cli 0.0.1
+
+https://github.com/Manticore-Platform/manticore-cli/releases/tag/0.0.1 
+
+
+- Download config.ini
+- Run executable within same directory (config.ini)
+
+
 ## Dependencies
 
 Install dependency with the following command 
