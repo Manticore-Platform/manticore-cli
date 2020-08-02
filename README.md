@@ -1,2 +1,51 @@
-# manticore-cli
-Manticore Adversary Emulation Cli
+# Manticore Adversary Emulation Client Tool
+
+## Dependencies
+
+Install dependency with the following command 
+
+```
+go get "github.com/fatih/color"
+```
+
+## Compile
+
+Build with the following command on the directory.
+
+```
+go build -ldflags="-s -w" .
+```
+
+## Run
+
+Download Executable from https://github.com/Manticore-Platform/manticore-cli/tags or Compile Yourself 
+Download Config.ini from https://github.com/Manticore-Platform/manticore-cli/tags or this Repository
+Run with the following command in one directory
+
+```
+manticore-cli.exe
+```
+
+
+## Config.ini
+
+Executable parses config.ini for taking scenarios.
+
+public-threat-group-url : Parses Threat Groups from Manticore Public Threat Repository (https://raw.githubusercontent.com/Manticore-Platform/public-threats/master/lolbins/lolbins.json)
+
+public-threat-scenarios-url : Parses Threat Scenarios from Manticore Public Threat Scenario Repository (https://raw.githubusercontent.com/Manticore-Platform/public-scenarios/master)
+
+payload-directory : Parses Payload used by Manticore Threat Scenario Repository ("https://raw.githubusercontent.com/mitre-attack/attack-arsenal/master/adversary_emulation/APT29/CALDERA_DIY/evals/payloads")
+
+```
+{
+"public-threat-group-url" : ["https://raw.githubusercontent.com/Manticore-Platform/public-threats/master/lolbins/lolbins.json"],
+"public-threat-scenarios-url" : "https://raw.githubusercontent.com/Manticore-Platform/public-scenarios/master",
+"payload-directory" : "https://raw.githubusercontent.com/mitre-attack/attack-arsenal/master/adversary_emulation/APT29/CALDERA_DIY/evals/payloads"
+}
+
+```
+
+## Disclaimer
+
+We are not responsible for any damage you might cause with this go tool. Use at own risk and for testing and learning only. Demo purposes only! Use this to avoid ransomware and make better tools against it.
