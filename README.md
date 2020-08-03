@@ -2,7 +2,7 @@
 
 ## Pre-Release 
 
-Manticore-Cli 0.0.1
+### Manticore-Cli 0.0.1
 
 https://github.com/Manticore-Platform/manticore-cli/releases/tag/0.0.1 
 
