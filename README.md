@@ -42,11 +42,11 @@ manticore-cli.exe
 
 Executable parses config.ini for taking scenarios.
 
-public-threat-group-url : Parses Threat Groups from Manticore Public Threat Repository (https://raw.githubusercontent.com/Manticore-Platform/public-threats/master/lolbins/lolbins.json)
+public-threat-group-url : Parses Threat Groups from Manticore Public Threat Repository (https://github.com/Manticore-Platform/public-threats - Example : https://github.com/Manticore-Platform/public-threats/blob/master/ransomware/ransomware.json)
 
-public-threat-scenarios-url : Parses Threat Scenarios from Manticore Public Threat Scenario Repository (https://raw.githubusercontent.com/Manticore-Platform/public-scenarios/master)
+public-threat-scenarios-url : Parses Threat Scenarios from Manticore Public Threat Scenario Repository (https://github.com/Manticore-Platform/public-scenarios)
 
-payload-directory : Parses Payload used by Manticore Threat Scenario Repository ("https://raw.githubusercontent.com/mitre-attack/attack-arsenal/master/adversary_emulation/APT29/CALDERA_DIY/evals/payloads")
+payload-directory : Parses Payload used by Manticore Threat Scenario Repository (https://github.com/Manticore-Platform/attack-arsenal/tree/master/adversary_emulation/APT29/CALDERA_DIY/evals/payloads)
 
 ```
 {
