@@ -1,5 +1,9 @@
 # Manticore Adversary Emulation Client Tool
 
+## Description
+
+Manticore adversary emulation command line tool is parsing complex scenarios from https://github.com/Manticore-Platform/public-threats and run these scenarios. 
+
 ## Pre-Release 
 
 ### Manticore-Cli 0.0.1
